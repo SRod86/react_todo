@@ -5,15 +5,14 @@ ReactOnRails.configure do |config|
   # Directory where your generated assets go
   config.generated_assets_dir = File.join(%w(app assets webpack))
 
-  # Define the files for we need to check for webpack compilation when running tests
+  # Define the files we need to check for webpack compilation when running tests
 
-  config.webpack_generated_files = %w( client-bundle.js )
+  config.webpack_generated_files = %w( app-bundle.js vendor-bundle.js )
 
 
   # Server rendering:
   # Server bundle is a single file for all server rendering of components.
   # Set the server_bundle_js_file to "" if you know that you will not be server rendering.
-
   config.server_bundle_js_file = ""
 
   # increase if you're on JRuby

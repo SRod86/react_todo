@@ -16,7 +16,7 @@ config/database.yml
 .ruby-version
 .ackrc
 # React on Rails
-npm-debug.log
+*.log*
 node_modules
 
 # Generated js bundles

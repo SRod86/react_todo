@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import App from '../components/App';
+import rootReducer from '../reducers/index'
+import { dummyRestaurants } from './dummyData'
 
-import createStore from '../store/restaurantListStore';
-import App from '../containers/App';
+const store = createStore(rootReducer, dummyRestaurants);
 
-export default (props) => {
-  const store = createStore(props);
-  const reactComponent = (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-  return reactComponent;
+export default class RestaurantListAppClient extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+  }
 }

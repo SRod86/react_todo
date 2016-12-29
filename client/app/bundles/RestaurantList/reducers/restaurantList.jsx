@@ -1,5 +1,5 @@
 import {
-  ADD_RESTAURANT, VISIT_RESTAURANT,
+  ADD_RESTAURANT, TOGGLE_VISIT_RESTAURANT,
   SET_VISIBILITY_FILTER, VisibilityFilters
 } from '../constants/restaurantListConstants'
 
@@ -26,14 +26,14 @@ function restaurant(state, action) {
         zip: action.zip,
         visited: false
       }
-    case VISIT_RESTAURANT:
+    case TOGGLE_VISIT_RESTAURANT:
       if(state.id != action.id) {
         return state;
       }
 
       return {
         ...state,
-        visited: true
+        visited: !state.visited
       };
   }
 }
@@ -42,7 +42,7 @@ export function restaurants(state = [], action) {
   switch (action.type) {
     case ADD_RESTAURANT:
       return [...state, restaurant(undefined, action)];
-    case VISIT_RESTAURANT:
+    case TOGGLE_VISIT_RESTAURANT:
       return state.map(r => restaurant(r, action));
     default:
       return state;

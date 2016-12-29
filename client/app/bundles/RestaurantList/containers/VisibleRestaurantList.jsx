@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { visitRestaurant } from '../actions/actions';
+import { toggleVisitRestaurant } from '../actions/actions';
 import RestaurantList from '../components/RestaurantList';
 import { VisibilityFilters } from '../constants/restaurantListConstants'
 
@@ -31,7 +31,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onRestaurantClick: (id) => {
-      dispatch(visitRestaurant(id))
+      dispatch(toggleVisitRestaurant(id))
     }
   }
 }

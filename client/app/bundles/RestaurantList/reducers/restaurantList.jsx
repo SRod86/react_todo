@@ -35,6 +35,8 @@ function restaurant(state, action) {
         ...state,
         visited: !state.visited
       };
+    default:
+      return state;
   }
 }
 

@@ -17,12 +17,13 @@ RestaurantList.propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    street1: PropTypes.string.isRequired,
+    street1: PropTypes.string,
     street2: PropTypes.string,
-    city: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired,
-    zip: PropTypes.string.isRequired,
-  }).isRequired),
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zip: PropTypes.string,
+    visited: PropTypes.bool.isRequired,
+  })),
   onRestaurantClick: PropTypes.func.isRequired
 }
 

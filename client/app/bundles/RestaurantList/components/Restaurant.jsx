@@ -17,11 +17,11 @@ const Restaurant = ({visited, name, street1, street2, city, state, zip, onClick}
 
 Restaurant.propTypes = {
   name: PropTypes.string.isRequired,
-  street1: PropTypes.string.isRequired,
+  street1: PropTypes.string,
   street2: PropTypes.string,
-  city: PropTypes.string.isRequired,
-  state: PropTypes.string.isRequired,
-  zip: PropTypes.string.isRequired,
+  city: PropTypes.string,
+  state: PropTypes.string,
+  zip: PropTypes.string,
   visited: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired
 }

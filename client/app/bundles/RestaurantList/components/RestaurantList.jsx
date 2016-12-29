@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Restaurant from '../components/Restaurant'
 
-const RestaurantList = ({restaurants, onRestaurantClick}) => {
+const RestaurantList = ({ restaurants, onRestaurantClick }) => {
   return (
     <ul>
       {restaurants.map(restaurant =>

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-const Restaurant = ({visited, name, street1, street2, city, state, zip, onClick}) => {
+const Restaurant = ({ visited, name, street1, street2, city, state, zip, onClick }) => {
   return (
     <li
       style={{textDecoration: visited ? 'line-through' : 'none'}}

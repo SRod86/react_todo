@@ -2,83 +2,59 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRestaurant } from '../actions/actions';
 
-let iName, iStreet1, iStreet2, iCity, iState, iZip;
+let AddRestaurant = ({ dispatch }) => {
+  let rName, rStreet1, rStreet2, rCity, rState, rZip;
 
-let createHandlers = dispatch => {
-  let onClick = (node, data) => {
-    dispatch(addRestaurant(
-      iName.value,
-      iStreet1.value,
-      iStreet2.value,
-      iCity.value,
-      iState.value,
-      iZip.value
-    ))
-  };
-
-  return {
-    onClick
-  };
+  return (
+    <div>
+      <input ref={nameField => {
+                   rName = nameField;
+                 }} />
+      <input ref={street1Field => {
+                   rStreet1 = street1Field;
+                 }} />
+      <input ref={street2Field => {
+                   rStreet2 = street2Field;
+                 }} />
+      <input ref={cityField => {
+                   rCity = cityField;
+                 }} />
+      <input ref={stateField => {
+                   rState = stateField;
+                 }} />
+      <input ref={zipField => {
+                   rZip = zipField;
+                 }} />
+      <button
+        type="submit"
+        onClick={
+          () => {
+            dispatch(addRestaurant(
+                      rName.value,
+                      rStreet1.value,
+                      rStreet2.value,
+                      rCity.value,
+                      rState.value,
+                      rZip.value
+                    )
+            );
+            // Reset each input value
+            clearInputs(rName, rStreet1, rStreet2, rCity, rState, rZip);
+          }
+        } >
+        Add Restaurant
+      </button>
+    </div>
+  );
 }
 
-class AddRestaurant extends Component {
-  constructor(props) {
-    super(props);
-    this.handlers = createHandlers(this.props.dispatch);
-
-  }
-
-  allInputsEmpty(inputs) {
-    return inputs.every(input => !input.value.trim());
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    var inputs = [iName, iStreet1, iStreet2, iCity, iState, iZip];
-    if (this.allInputsEmpty(inputs)) {
-      return
-    }
-    this.handlers.onClick;
-    inputs.forEach(input => input.value = '');
-  }
-
-  render() {
-
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input ref={nameField => {
-                       iName = nameField
-                     }}
-                 value="a" />
-          <input ref={street1Field => {
-                       iStreet1 = street1Field
-                     }}
-                 value="a" />
-          <input ref={street2Field => {
-                       iStreet2 = street2Field
-                     }}
-                 value="a" />
-          <input ref={cityField => {
-                       iCity = cityField
-                     }}
-                 value="a" />
-          <input ref={stateField => {
-                       iState = stateField
-                     }}
-                 value="a" />
-          <input ref={zipField => {
-                       iZip = zipField
-                     }}
-                 value="a" />
-          <button type="submit">
-            Add Restaurant
-          </button>
-        </form>
-      </div>
-    );
-  }
+function clearInputs(nameInput, street1Input, street2Input, cityInput, stateInput, zipInput) {
+  nameInput.value = '';
+  street1Input.value = '';
+  street2Input.value = '';
+  cityInput.value = '';
+  stateInput.value = '';
+  zipInput.value = '';
 }
 
 AddRestaurant = connect()(AddRestaurant)

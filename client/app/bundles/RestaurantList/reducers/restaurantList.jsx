@@ -18,6 +18,7 @@ function restaurant(state, action) {
   switch(action.type) {
     case ADD_RESTAURANT:
       return {
+        id: action.id,
         name: action.name,
         street1: action.street1,
         street2: action.street2,

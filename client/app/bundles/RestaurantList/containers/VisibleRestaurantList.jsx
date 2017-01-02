@@ -25,20 +25,20 @@ GetVisibleRestaurants.propTypes = {
 const mapStateToProps = (state) => {
   return {
     restaurants: GetVisibleRestaurants(state.restaurants, state.visibilityFilter)
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onRestaurantClick: (id) => {
       dispatch(toggleVisitRestaurant(id))
     }
-  }
-}
+  };
+};
 
 const VisibleRestaurantList = connect(
   mapStateToProps,
   mapDispatchToProps
-)(RestaurantList)
+)(RestaurantList);
 
 export default VisibleRestaurantList

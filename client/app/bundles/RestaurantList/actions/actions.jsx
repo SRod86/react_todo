@@ -1,6 +1,6 @@
 import {
   ADD_RESTAURANT, TOGGLE_VISIT_RESTAURANT,
-  SET_VISIBILITY_FILTER
+  UPVOTE, DOWNVOTE, SET_VISIBILITY_FILTER
 } from '../constants/restaurantListConstants';
 import { nextRestId } from '../startup/dummyData'
 
@@ -24,4 +24,12 @@ export function toggleVisitRestaurant(id) {
 
 export function setVisibilityFilter(filter) {
   return { type: SET_VISIBILITY_FILTER, filter };
+}
+
+export function upvote(id) {
+  return { type: UPVOTE, id }
+}
+
+export function downvote(id) {
+  return { type: DOWNVOTE, id }
 }

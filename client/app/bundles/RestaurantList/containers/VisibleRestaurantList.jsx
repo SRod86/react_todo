@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { toggleVisitRestaurant } from '../actions/actions';
+import { toggleVisitRestaurant, upvote, downvote } from '../actions/actions';
 import RestaurantList from '../components/RestaurantList';
 import { VisibilityFilters } from '../constants/restaurantListConstants'
 
@@ -32,6 +32,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onRestaurantClick: (id) => {
       dispatch(toggleVisitRestaurant(id))
+    },
+    onUpvoteClick: (id) => {
+      dispatch(upvote(id))
+    },
+    onDownvoteClick: (id) => {
+      dispatch(downvote(id))
     }
   };
 };

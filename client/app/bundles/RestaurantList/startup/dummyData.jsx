@@ -7,7 +7,8 @@ export const dummyRestaurants = {
       city: 'Miami',
       state: 'FL',
       zip: '12345',
-      visited: false
+      visited: false,
+      votes: 0
     },
     {
       id: 1,
@@ -16,7 +17,8 @@ export const dummyRestaurants = {
       city: 'Miami',
       state: 'FL',
       zip: '12345',
-      visited: false
+      visited: false,
+      votes: 3
     },
     {
       id: 2,
@@ -25,7 +27,8 @@ export const dummyRestaurants = {
       city: 'Miami',
       state: 'FL',
       zip: '12345',
-      visited: false
+      visited: false,
+      votes: 0
     },
     {
       id: 3,
@@ -34,7 +37,8 @@ export const dummyRestaurants = {
       city: 'Miami',
       state: 'FL',
       zip: '12345',
-      visited: false
+      visited: false,
+      votes: 6
     },
     {
       id: 4,
@@ -43,7 +47,8 @@ export const dummyRestaurants = {
       city: 'Miami',
       state: 'FL',
       zip: '12345',
-      visited: false
+      visited: false,
+      votes: 1
     }
   ]
 };

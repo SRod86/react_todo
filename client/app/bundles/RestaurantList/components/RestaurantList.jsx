@@ -1,13 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import Restaurant from '../components/Restaurant'
 
-const RestaurantList = ({ restaurants, onRestaurantClick }) => {
+const RestaurantList = ({ restaurants, onRestaurantClick, onUpvoteClick, onDownvoteClick }) => {
   return (
     <ul>
       {restaurants.map(restaurant =>
         <Restaurant key={restaurant.id}
                     {...restaurant}
-                    onClick={() => onRestaurantClick(restaurant.id)}/>
+                    onRestaurantClick={() => onRestaurantClick(restaurant.id)}
+                    onUpvoteClick={() => onUpvoteClick(restaurant.id)}
+                    onDownvoteClick={() => onDownvoteClick(restaurant.id)} />
       )}
     </ul>
   );
@@ -23,8 +25,11 @@ RestaurantList.propTypes = {
     state: PropTypes.string,
     zip: PropTypes.string,
     visited: PropTypes.bool.isRequired,
+    votes: PropTypes.number.isRequired
   })),
-  onRestaurantClick: PropTypes.func.isRequired
+  onRestaurantClick: PropTypes.func.isRequired,
+  onUpvoteClick: PropTypes.func.isRequired,
+  onDownvoteClick: PropTypes.func.isRequired,
 }
 
 export default RestaurantList;

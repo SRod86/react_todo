@@ -1,17 +1,28 @@
 import React, { Component, PropTypes } from 'react';
+import Vote from './Vote';
 
-const Restaurant = ({ visited, name, street1, street2, city, state, zip, onClick }) => {
+const Restaurant = ({ id, name, street1, street2, city, state, zip, visited, votes, onRestaurantClick, onUpvoteClick, onDownvoteClick }) => {
   return (
-    <li
-      style={{textDecoration: visited ? 'line-through' : 'none'}}
-      onClick={onClick} >
-      {name}
-      {street1}
-      {street2}
-      {city}
-      {state}
-      {zip}
-    </li>
+    <div>
+      <li
+        style={{
+          textDecoration: visited ? 'line-through' : 'none',
+          cursor: 'pointer'
+        }}
+        onClick={onRestaurantClick} >
+        {name}
+        {street1}
+        {street2}
+        {city}
+        {state}
+        {zip}
+      </li>
+      <Vote
+        restaurrant_id={id}
+        votes={votes}
+        onUpvoteClick={() => onUpvoteClick}
+        onDownvoteClick={() => onDownvoteClick} />
+    </div>
   );
 }
 
@@ -23,7 +34,9 @@ Restaurant.propTypes = {
   state: PropTypes.string,
   zip: PropTypes.string,
   visited: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  onRestaurantClick: PropTypes.func.isRequired,
+  onUpvoteClick: PropTypes.func.isRequired,
+  onDownvoteClick: PropTypes.func.isRequired
 }
 
 export default Restaurant

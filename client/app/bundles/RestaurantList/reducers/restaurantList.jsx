@@ -1,6 +1,7 @@
 import {
   ADD_RESTAURANT, TOGGLE_VISIT_RESTAURANT,
-  SET_VISIBILITY_FILTER, VisibilityFilters
+  SET_VISIBILITY_FILTER, VisibilityFilters,
+  UPVOTE, DOWNVOTE
 } from '../constants/restaurantListConstants'
 
 const { SHOW_ALL } = VisibilityFilters;
@@ -36,6 +37,24 @@ function restaurant(state, action) {
         ...state,
         visited: !state.visited
       };
+    case UPVOTE:
+      if(state.id != action.id) {
+        return state;
+      }
+
+      return {
+        ...state,
+        votes: state.votes += 1
+      };
+    case DOWNVOTE:
+      if(state.id != action.id) {
+        return state;
+      }
+
+      return {
+        ...state,
+        votes: state.votes -= 1
+      };
     default:
       return state;
   }
@@ -46,6 +65,8 @@ export function restaurants(state = [], action) {
     case ADD_RESTAURANT:
       return [...state, restaurant(undefined, action)];
     case TOGGLE_VISIT_RESTAURANT:
+    case UPVOTE:
+    case DOWNVOTE:
       return state.map(r => restaurant(r, action));
     default:
       return state;
